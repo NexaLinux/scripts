@@ -274,8 +274,6 @@ sudo pacman -S --noconfirm flatpak
 sudo yay -S brave-bin --noconfirm
 sudo yay -S vscodium-bin --noconfirm
 sudo pacman -R --noconfirm kate
-sudo pacman -R --noconfirm oxygen
-sudo pacman -R --noconfirm oxygen-sounds
 
 # done
 echo Done installing! Please reboot your PC.
