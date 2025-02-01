@@ -173,16 +173,16 @@ sudo mkdir /usr/share/nexa-sddm-wp/
 echo "ℹ️ [INFO] Adding Nexa Linux repository..."
 sudo sh -c 'echo "[nexa-pkg]" >> /etc/pacman.conf && echo "SigLevel = Optional TrustAll" >> /etc/pacman.conf && echo "Server = https://packages.nexalinux.xyz/" >> /etc/pacman.conf'
 echo "ℹ️ [INFO] Cloning other artwork..."
-git clone https://github.com/NexaLinux/other-artwork /tmp/nexa-tmp/other-artwork/
+sudo git clone https://github.com/NexaLinux/other-artwork /tmp/nexa-tmp/other-artwork/
 echo "ℹ️ [INFO] Installing Nexa commands..."
 sudo pacman -Sy
 sudo pacman -S --confirm --needed nexa-cmd
 echo "ℹ️ [INFO] Cloning GitHub profile..."
-git clone https://github.com/NexaLinux/.github/ /tmp/nexa-tmp/github-profile/
+sudo git clone https://github.com/NexaLinux/.github/ /tmp/nexa-tmp/github-profile/
 echo "ℹ️ [INFO] Marking as Nexa Linux installation..."
 sudo echo > /etc/this-is-nexa
 echo "ℹ️ [INFO] Cloning pixmaps..."
-git clone https://github.com/NexaLinux/pixmaps /tmp/nexa-tmp/pixmaps/
+sudo git clone https://github.com/NexaLinux/pixmaps /tmp/nexa-tmp/pixmaps/
 
 # time to shine! installing
 echo "🔥 [INSTALL] Adding wallpapers..."
