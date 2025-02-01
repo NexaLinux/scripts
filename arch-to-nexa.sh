@@ -210,43 +210,43 @@ sudo rm /etc/os-release
 sudo cp /tmp/nexa-tmp/pixmaps/os-release /etc/
 echo "🔥 [INSTALL] Installing SDDM theme..."
 sudo rm /etc/sddm.conf
-sudo echo "[General]" >> /etc/sddm.conf
-sudo echo "DisplayServer=wayland" >> /etc/sddm.conf
-sudo echo "GreeterEnvironment=" >> /etc/sddm.conf
-sudo echo "InputMethod=" >> /etc/sddm.conf
-sudo echo "Namespaces=" >> /etc/sddm.conf
-sudo echo "Numlock=none" >> /etc/sddm.conf
-sudo echo "[Theme]" >> /etc/sddm.conf
-sudo echo "CursorSize=24" >> /etc/sddm.conf
-sudo echo "DisableAvatarsThreshold=7" >> /etc/sddm.conf
-sudo echo "EnableAvatars=false" >> /etc/sddm.conf
-sudo echo "FacesDir=/usr/share/sddm/faces" >> /etc/sddm.conf
-sudo echo "Font=" >> /etc/sddm.conf
-sudo echo "ThemeDir=/usr/share/sddm/themes" >> /etc/sddm.conf
-sudo echo "Current=nexasddm" >> /etc/sddm.conf
-sudo echo "[Users]" >> /etc/sddm.conf
-sudo echo "DefaultPath=/usr/local/sbin:/usr/local/bin:/usr/bin" >> /etc/sddm.conf
-sudo echo "HideShells=" >> /etc/sddm.conf
-sudo echo "HideUsers=" >> /etc/sddm.conf
-sudo echo "RememberLastSession=true" >> /etc/sddm.conf
-sudo echo "RememberLastUser=true" >> /etc/sddm.conf
-sudo echo "ReuseSession=true" >> /etc/sddm.conf
-sudo echo "[Wayland]" >> /etc/sddm.conf
-sudo echo "CompositorCommand=weston --shell=fullscreen-shell.so" >> /etc/sddm.conf
-sudo echo "EnableHiDPI=true" >> /etc/sddm.conf
-sudo echo "SessionCommand=/usr/share/sddm/scripts/wayland-session" >> /etc/sddm.conf
-sudo echo "SessionDir=/usr/local/share/wayland-sessions,/usr/share/wayland-sessions" >> /etc/sddm.conf
-sudo echo "SessionLogFile=.local/share/sddm/wayland-session.log" >> /etc/sddm.conf
-sudo echo "[X11]" >> /etc/sddm.conf
-sudo echo "DisplayCommand=/usr/share/sddm/scripts/Xsetup" >> /etc/sddm.conf
-sudo echo "DisplayStopCommand=/usr/share/sddm/scripts/Xstop" >> /etc/sddm.conf
-sudo echo "EnableHiDPI=true" >> /etc/sddm.conf
-sudo echo "ServerArguments=-nolisten tcp" >> /etc/sddm.conf
-sudo echo "ServerPath=/usr/bin/X" >> /etc/sddm.conf
-sudo echo "SessionCommand=/usr/share/sddm/scripts/Xsession" >> /etc/sddm.conf
-sudo echo "SessionDir=/usr/local/share/xsessions,/usr/share/xsessions" >> /etc/sddm.conf
-sudo echo "SessionLogFile=.local/share/sddm/xorg-session.log" >> /etc/sddm.conf
-sudo echo "XephyrPath=/usr/bin/Xephyr" >> /etc/sddm.conf
+sudo sh -c 'echo "[General]" >> /etc/sddm.conf'
+sudo sh -c 'echo "DisplayServer=wayland" >> /etc/sddm.conf'
+sudo sh -c 'echo "GreeterEnvironment=" >> /etc/sddm.conf'
+sudo sh -c 'echo "InputMethod=" >> /etc/sddm.conf'
+sudo sh -c 'echo "Namespaces=" >> /etc/sddm.conf'
+sudo sh -c 'echo "Numlock=none" >> /etc/sddm.conf'
+sudo sh -c 'echo "[Theme]" >> /etc/sddm.conf'
+sudo sh -c 'echo "CursorSize=24" >> /etc/sddm.conf'
+sudo sh -c 'echo "DisableAvatarsThreshold=7" >> /etc/sddm.conf'
+sudo sh -c 'echo "EnableAvatars=false" >> /etc/sddm.conf'
+sudo sh -c 'echo "FacesDir=/usr/share/sddm/faces" >> /etc/sddm.conf'
+sudo sh -c 'echo "Font=" >> /etc/sddm.conf'
+sudo sh -c 'echo "ThemeDir=/usr/share/sddm/themes" >> /etc/sddm.conf'
+sudo sh -c 'echo "Current=nexasddm" >> /etc/sddm.conf'
+sudo sh -c 'echo "[Users]" >> /etc/sddm.conf'
+sudo sh -c 'echo "DefaultPath=/usr/local/sbin:/usr/local/bin:/usr/bin" >> /etc/sddm.conf'
+sudo sh -c 'echo "HideShells=" >> /etc/sddm.conf'
+sudo sh -c 'echo "HideUsers=" >> /etc/sddm.conf'
+sudo sh -c 'echo "RememberLastSession=true" >> /etc/sddm.conf'
+sudo sh -c 'echo "RememberLastUser=true" >> /etc/sddm.conf'
+sudo sh -c 'echo "ReuseSession=true" >> /etc/sddm.conf'
+sudo sh -c 'echo "[Wayland]" >> /etc/sddm.conf'
+sudo sh -c 'echo "CompositorCommand=weston --shell=fullscreen-shell.so" >> /etc/sddm.conf'
+sudo sh -c 'echo "EnableHiDPI=true" >> /etc/sddm.conf'
+sudo sh -c 'echo "SessionCommand=/usr/share/sddm/scripts/wayland-session" >> /etc/sddm.conf'
+sudo sh -c 'echo "SessionDir=/usr/local/share/wayland-sessions,/usr/share/wayland-sessions" >> /etc/sddm.conf'
+sudo sh -c 'echo "SessionLogFile=.local/share/sddm/wayland-session.log" >> /etc/sddm.conf'
+sudo sh -c 'echo "[X11]" >> /etc/sddm.conf'
+sudo sh -c 'echo "DisplayCommand=/usr/share/sddm/scripts/Xsetup" >> /etc/sddm.conf'
+sudo sh -c 'echo "DisplayStopCommand=/usr/share/sddm/scripts/Xstop" >> /etc/sddm.conf'
+sudo sh -c 'echo "EnableHiDPI=true" >> /etc/sddm.conf'
+sudo sh -c 'echo "ServerArguments=-nolisten tcp" >> /etc/sddm.conf'
+sudo sh -c 'echo "ServerPath=/usr/bin/X" >> /etc/sddm.conf'
+sudo sh -c 'echo "SessionCommand=/usr/share/sddm/scripts/Xsession" >> /etc/sddm.conf'
+sudo sh -c 'echo "SessionDir=/usr/local/share/xsessions,/usr/share/xsessions" >> /etc/sddm.conf'
+sudo sh -c 'echo "SessionLogFile=.local/share/sddm/xorg-session.log" >> /etc/sddm.conf'
+sudo sh -c 'echo "XephyrPath=/usr/bin/Xephyr" >> /etc/sddm.conf'
 
 # done
 echo Done installing! Please reboot your PC.
