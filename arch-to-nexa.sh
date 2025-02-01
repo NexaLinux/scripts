@@ -47,10 +47,10 @@ while true; do
     echo "⚠️ [WARNING] The makers of this script are not responsible for any damages caused to your PC."
     read -p "Do you want to continue? (y/n): " choice
     
-    if [[ "$answer" == "y" || "$answer" == "Y" ]]; then
+    if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
         clear
         break
-    elif [[ "$answer" == "n" || "$answer" == "N" ]]; then
+    ELif [[ "$choice" == "n" || "$choice" == "N" ]]; then
         exit 0
     else
         echo "⛔ [ERROR] Invalid choice."
