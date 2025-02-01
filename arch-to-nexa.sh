@@ -50,7 +50,7 @@ while true; do
     if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
         clear
         break
-    ELif [[ "$choice" == "n" || "$choice" == "N" ]]; then
+    elif [[ "$choice" == "n" || "$choice" == "N" ]]; then
         exit 0
     else
         echo "⛔ [ERROR] Invalid choice."
