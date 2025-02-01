@@ -15,6 +15,9 @@
 
 #!/bin/bash
 
+# variables
+ver="1.0.0"
+
 # splash
 echo
 echo "███    ██ ███████ ██   ██  █████      ██      ██ ███    ██ ██    ██ ██   ██ "
@@ -23,8 +26,10 @@ echo "██ ██  ██ █████     ███   ██████�
 echo "██  ██ ██ ██       ██ ██  ██   ██     ██      ██ ██  ██ ██ ██    ██  ██ ██  "
 echo "██   ████ ███████ ██   ██ ██   ██     ███████ ██ ██   ████  ██████  ██   ██ "
 echo
-echo Arch Linux to Nexa Linux converter - Made with ❤️ by the Nexa Linux team
-echo "ℹ️ [INFO] Running checks..."
+echo Arch Linux to Nexa Linux converter
+echo Ver. $ver
+echo 
+echo "[INFO] Running checks..."
 
 # check if user running in tty
 terminal_type=$(tty)
