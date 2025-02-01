@@ -158,13 +158,14 @@ clear
 
 # time to shine! setting up
 echo "ℹ️ [INFO] Making directories..."
-mkdir /tmp/nexa-tmp/
-mkdir /usr/share/nexa-sddm-wp/
+sudo mkdir /tmp/nexa-tmp/
+sudo mkdir /usr/share/nexa-sddm-wp/
 echo "ℹ️ [INFO] Adding Nexa Linux repository..."
 sudo sh -c 'echo "[nexa-pkg]" >> /etc/pacman.conf && echo "SigLevel = Optional TrustAll" >> /etc/pacman.conf && echo "Server = https://packages.nexalinux.xyz/" >> /etc/pacman.conf'
 echo "ℹ️ [INFO] Cloning other artwork..."
 git clone https://github.com/NexaLinux/other-artwork /tmp/nexa-tmp/other-artwork/
 echo "ℹ️ [INFO] Installing Nexa commands..."
+sudo pacman -Sy
 sudo pacman -S --confirm --needed nexa-cmd
 echo "ℹ️ [INFO] Cloning GitHub profile..."
 git clone https://github.com/NexaLinux/.github/ /tmp/nexa-tmp/github-profile/
