@@ -31,30 +31,30 @@ echo Ver. $ver
 echo 
 echo "[INFO] Running checks..."
 
-# check if user running in tty
+# check if user is running in TTY
 terminal_type=$(tty)
 
 if [[ "$(tty)" == /dev/tty* ]]; then
-    echo "✅ Running in a TTY"
+    echo "Running in a TTY"
 else
-    echo "❌ Not running in a TTY! To enter a TTY, press CTRL + SHIFT + F5 on your keyboard."
+    echo "Not running in a TTY! To enter a TTY, press CTRL + SHIFT + F5 on your keyboard."
     exit 1
 fi
 
-# check if user is running arch linux
+# check if user is running Arch Linux
 if [[ -f "/etc/arch-release" ]]; then
-    echo "✅ Arch Linux detected"
+    echo "Arch Linux detected"
 else
-    echo "❌ You are not running Arch Linux! Please try running me on an Arch Linux PC."
+    echo "You are not running Arch Linux! Please try running me on an Arch Linux PC."
     exit 1
 fi
 
-# check if user is already running nexa linux
+# check if user is already running Nexa Linux
 if [[ -f "/etc/this-is-nexa" ]]; then
-  echo "❌ Nexa Linux has been detected."
+  echo "Nexa Linux has been detected."
   exit 1
 else
-  echo "✅ Nexa Linux wasn't detected."
+  echo "Nexa Linux wasn't detected."
 fi
 
 # confirmation
@@ -62,160 +62,155 @@ sleep 10
 
 # check if user selected yes or no
 while true; do
-    echo "⚠️ [WARNING] The makers of this script are not responsible for any damages caused to your PC."
-    read -p "Do you want to continue? (y/n): " choice
+    echo "[WARNING] The creators of this script are not responsible for any damages caused to your PC."
+    read -p "Do you want to continue? (Y/n): " choice
     
-    if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
+    if [[ "$choice" == "Y" ]]; then
         break
     elif [[ "$choice" == "n" || "$choice" == "N" ]]; then
         exit 0
     else
-        echo "⛔ [ERROR] Invalid choice."
+        echo "[ERROR] Invalid choice."
     fi
 done
 
-# removing DE's
+# removing Desktop Environments
 # function to check if DE binaries exist
-check_binary() {
+check_de() {
     command -v "$1" &> /dev/null
 }
 
-if check_binary "gnome-shell"; then
+if check_de "gnome-shell"; then
     echo "GNOME detected..."
     sudo pacman -y -Rns gnome gnome-shell gdm
-elif check_binary "plasmashell"; then
+elif check_de "plasmashell"; then
     echo "KDE Plasma detected..."
     sudo pacman -y -Rns plasma-desktop sddm
-elif check_binary "xfce4-session"; then
+elif check_de "xfce4-session"; then
     echo "XFCE detected..."
     sudo pacman -y -Rns xfce4 xfce4-goodies lightdm
-elif check_binary "mate-session"; then
+elif check_de "mate-session"; then
     echo "MATE detected..."
     sudo pacman -y -Rns mate lightdm
-elif check_binary "cinnamon-session"; then
+elif check_de "cinnamon-session"; then
     echo "Cinnamon detected..."
     sudo pacman -y -Rns cinnamon lightdm
-elif check_binary "startlxqt"; then
+elif check_de "startlxqt"; then
     echo "LXQt detected..."
     sudo pacman -y -Rns lxqt lightdm
-elif check_binary "startlxde"; then
+elif check_de "startlxde"; then
     echo "LXDE detected..."
     sudo pacman -y -Rns lxde lightdm
-elif check_binary "budgie-desktop"; then
+elif check_de "budgie-desktop"; then
     echo "Budgie detected..."
     sudo pacman -y -Rns budgie-desktop lightdm
-elif check_binary "deepin-session"; then
+elif check_de "deepin-session"; then
     echo "Deepin detected..."
     sudo pacman -y -Rns deepin lightdm
-elif check_binary "i3"; then
+elif check_de "i3"; then
     echo "i3 detected..."
     sudo pacman -y -Rns i3-wm i3status i3lock
-elif check_binary "openbox"; then
+elif check_de "openbox"; then
     echo "Openbox detected..."
     sudo pacman -y -Rns openbox lightdm
-elif check_binary "fluxbox"; then
+elif check_de "fluxbox"; then
     echo "Fluxbox detected..."
     sudo pacman -y -Rns fluxbox lightdm
-elif check_binary "awesome"; then
+elif check_de "awesome"; then
     echo "Awesome detected..."
     sudo pacman -y -Rns awesome lightdm
-elif check_binary "sway"; then
+elif check_de "sway"; then
     echo "Sway detected..."
     sudo pacman -y -Rns sway lightdm
-elif check_binary "bspwm"; then
+elif check_de "bspwm"; then
     echo "Bspwm detected..."
     sudo pacman -y -Rns bspwm lightdm
-elif check_binary "xmonad"; then
+elif check_de "xmonad"; then
     echo "Xmonad detected..."
     sudo pacman -y -Rns xmonad lightdm
-elif check_binary "herbstluftwm"; then
+elif check_de "herbstluftwm"; then
     echo "Herbstluftwm detected..."
     sudo pacman -y -Rns herbstluftwm lightdm
-elif check_binary "ratpoison"; then
+elif check_de "ratpoison"; then
     echo "Ratpoison detected..."
     sudo pacman -y -Rns ratpoison lightdm
-elif check_binary "icewm"; then
+elif check_de "icewm"; then
     echo "IceWM detected..."
     sudo pacman -y -Rns icewm lightdm
-elif check_binary "jwm"; then
+elif check_de "jwm"; then
     echo "JWM detected..."
     sudo pacman -y -Rns jwm lightdm
-elif check_binary "wayfire"; then
+elif check_de "wayfire"; then
     echo "Wayfire detected..."
     sudo pacman -y -Rns wayfire lightdm
-elif check_binary "qtile"; then
+elif check_de "qtile"; then
     echo "Qtile detected..."
     sudo pacman -y -Rns qtile lightdm
-elif check_binary "cde"; then
+elif check_de "cde"; then
     echo "CDE detected..."
     sudo pacman -y -Rns cdesktopenv lightdm
-elif check_binary "lumina"; then
+elif check_de "lumina"; then
     echo "Lumina detected..."
     sudo pacman -y -Rns lumina-desktop lightdm
-elif check_binary "hyprland"; then
+elif check_de "hyprland"; then
     echo "Hyprland detected..."
     sudo pacman -y -Rns hyprland
 else
-    echo "ℹ️ [INFO] I haven't found any DE known to me on this system."
-    echo "⚠️ [WARNING] If the script continues with a DE installed, this will cause broken behavior."
+    echo "[INFO] I haven't found any Desktop Environment known to me on this system."
+    echo "[WARNING] If the script continues with a DE installed, this will cause broken behavior."
     echo "!!! Continuing in 20 seconds, if you do have a DE, please CTRL + C and remove it manually, then run the script again. !!!"
     sleep 20
     break  
 fi
 
 # installing dependencies
-echo "ℹ️ [INFO] Installing Git..."
+echo "[INFO] Installing Git..."
 sudo pacman -S --noconfirm --needed git
-echo "ℹ️ [INFO] Installing KDE Plasma..."
+echo "[INFO] Installing KDE Plasma..."
 sudo pacman -S --noconfirm --needed plasma
-echo "ℹ️ [INFO] Installing Wayland..."
+echo "[INFO] Installing Wayland..."
 sudo pacman -S --noconfirm --needed wayland
 
 # time to shine! setting up
-echo "ℹ️ [INFO] Making directories..."
+echo "[INFO] Making directories..."
 sudo mkdir /tmp/nexa-tmp/
 sudo mkdir /usr/share/nexa-sddm-wp/
-echo "ℹ️ [INFO] Adding Nexa Linux repository..."
+echo "[INFO] Adding Nexa Linux repository..."
 sudo sh -c 'echo "[nexa-pkg]" >> /etc/pacman.conf && echo "SigLevel = Optional TrustAll" >> /etc/pacman.conf && echo "Server = https://packages.nexalinux.xyz/" >> /etc/pacman.conf'
-echo "ℹ️ [INFO] Cloning other artwork..."
-sudo git clone https://github.com/NexaLinux/other-artwork /tmp/nexa-tmp/other-artwork/
-echo "ℹ️ [INFO] Installing Nexa commands..."
-sudo pacman -Sy
-sudo pacman -S --noconfirm --needed nexa-cmd
-echo "ℹ️ [INFO] Cloning GitHub profile..."
-sudo git clone https://github.com/NexaLinux/.github/ /tmp/nexa-tmp/github-profile/
-echo "ℹ️ [INFO] Marking as Nexa Linux installation..."
+echo "[INFO] Cloning artwork..."
+sudo git clone https://github.com/NexaLinux/artwork /tmp/nexa-tmp/artwork/
+sudo pacman -Syy
+echo "[INFO] Marking as Nexa Linux installation..."
 sudo echo > /etc/this-is-nexa
-echo "ℹ️ [INFO] Cloning pixmaps..."
+echo "[INFO] Cloning pixmaps..."
 sudo git clone https://github.com/NexaLinux/pixmaps /tmp/nexa-tmp/pixmaps/
 echo "ℹ️ [INFO] Cloning SDDM theme..."
 sudo git clone https://github.com/NexaLinux/sddm-theme /tmp/nexa-tmp/nexasddm/
 
 # time to shine! installing
-echo "🔥 [INSTALL] Adding wallpapers..."
-sudo cp -r /tmp/nexa-tmp/other-artwork/ /usr/share/wallpapers/
-sudo cp -r /tmp/nexa-tmp/github-profile/wallpapers/ /usr/share/wallpapers/nexalinux/
-echo "🔥 [INSTALL] Changing default wallpaper to \"/usr/share/wallpapers/nexalinux/dotted-logo.png\"..."
+echo "[INSTALL] Adding wallpapers..."
+sudo cp -r /tmp/nexa-tmp/artwork/ /usr/share/wallpapers/
+echo "[INSTALL] Changing default wallpaper..."
 sudo mkdir -p /etc/skel/.config
 sudo sh -c 'echo "[Containments][1][Wallpaper][org.kde.image][General]" >> /etc/skel/.config/plasma-org.kde.plasma.desktop-appletsrc'
-sudo sh -c 'echo "Image=file:///usr/share/wallpapers/nexalinux/dotted-logo.png" >> /etc/skel/.config/plasma-org.kde.plasma.desktop-appletsrc'
+sudo sh -c 'echo "Image=file:///usr/share/wallpapers/Nexa Theme/Nexa Theme.png" >> /etc/skel/.config/plasma-org.kde.plasma.desktop-appletsrc'
 sudo sh -c 'echo "SlidePaths=/usr/share/wallpapers/" >> /etc/skel/.config/plasma-org.kde.plasma.desktop-appletsrc'
-echo "🔥 [INSTALL] Adding login screen wallpaper..."
-sudo cp /usr/share/wallpapers/nexalinux/dotted-logo.png /usr/share/nexa-sddm-wp/lock.png
-echo "🔥 [INSTALL] Changing DM to SDDM..."
+echo "[INSTALL] Adding login screen wallpaper..."
+sudo cp /usr/share/wallpapers/Reflection 2/Reflection 2.png /usr/share/nexa-sddm-wp/lock.png
+echo "[INSTALL] Changing DM to SDDM..."
 sudo rm /etc/systemd/system/display-manager.service
 sudo systemctl enable sddm
-echo "🔥 [INSTALL] Changing pixmaps..."
+echo "[INSTALL] Changing pixmaps..."
 sudo rm /usr/share/pixmaps/archlinux-logo.png
 sudo rm /usr/share/pixmaps/archlinux-logo.svg
 sudo rm /usr/share/pixmaps/archlinux-logo-text-dark.svg
 sudo rm /usr/share/pixmaps/archlinux-logo-text.svg
 sudo cp /tmp/nexa-tmp/pixmaps/*.png /usr/share/pixmaps/
 sudo cp /tmp/nexa-tmp/pixmaps/*.svg /usr/share/pixmaps/
-echo "🔥 [INSTALL] Changing /etc/os-release..."
+echo "[INSTALL] Changing OS info"
 sudo rm /etc/os-release
 sudo cp /tmp/nexa-tmp/pixmaps/os-release /etc/
-echo "🔥 [INSTALL] Installing SDDM theme..."
+echo "[INSTALL] Installing SDDM theme..."
 sudo cp -R /tmp/nexa-tmp/nexasddm/ /usr/share/sddm/themes/
 sudo rm /etc/sddm.conf
 sudo sh -c 'echo "[General]" >> /etc/sddm.conf'
@@ -256,7 +251,27 @@ sudo sh -c 'echo "SessionDir=/usr/local/share/xsessions,/usr/share/xsessions" >>
 sudo sh -c 'echo "SessionLogFile=.local/share/sddm/xorg-session.log" >> /etc/sddm.conf'
 sudo sh -c 'echo "XephyrPath=/usr/bin/Xephyr" >> /etc/sddm.conf'
 
+# install yay (AUR helper)
+echo "[INSTALL] Installing AUR helper (yay)..."
+git clone https://aur.archlinux.org/yay.git /tmp/nexa-tmp/yay
+cd /tmp/nexa-tmp/yay
+makepkg -si
+
+# setting up packages
+echo "[INSTALL] Setting up packages..."
+sudo pacman -Sy
+sudo pacman -Syy
+sudo pacman -Syu
+sudo pacman -S --noconfirm nexa-cmd
+sudo pacman -R --noconfirm firefox
+sudo pacman -S --noconfirm flatpak
+sudo yay -S brave-bin --noconfirm
+sudo yay -S vscodium-bin --noconfirm
+sudo pacman -R --noconfirm kate
+
+
 # done
 echo Done installing! Please reboot your PC.
 echo
+sleep 30
 exit 0
