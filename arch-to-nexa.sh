@@ -9,7 +9,6 @@ echo "██  ██ ██ ██       ██ ██  ██   ██     █�
 echo "██   ████ ███████ ██   ██ ██   ██     ███████ ██ ██   ████  ██████  ██   ██ "
 echo
 echo Arch Linux to Nexa Linux converter - Made with ❤️ by the Nexa Linux team
-
 echo "ℹ️ [INFO] Running checks..."
 
 # check if user running in tty
@@ -40,7 +39,6 @@ fi
 
 # confirmation
 sleep 10
-clear
 
 # check if user selected yes or no
 while true; do
@@ -48,7 +46,6 @@ while true; do
     read -p "Do you want to continue? (y/n): " choice
     
     if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
-        clear
         break
     elif [[ "$choice" == "n" || "$choice" == "N" ]]; then
         exit 0
@@ -143,8 +140,7 @@ else
     echo "⚠️ [WARNING] If the script continues with a DE installed, this will cause broken behavior."
     echo "!!! Continuing in 20 seconds, if you do have a DE, please CTRL + C and remove it manually, then run the script again. !!!"
     sleep 20
-    break
-    clear
+    break  
 fi
 
 # installing dependencies
@@ -154,7 +150,6 @@ echo "ℹ️ [INFO] Installing KDE Plasma..."
 sudo pacman -S --confirm --needed plasma
 echo "ℹ️ [INFO] Installing Wayland..."
 sudo pacman -S --confirm --needed wayland
-clear
 
 # time to shine! setting up
 echo "ℹ️ [INFO] Making directories..."
@@ -173,7 +168,6 @@ echo "ℹ️ [INFO] Marking as Nexa Linux installation..."
 sudo echo > /etc/this-is-nexa
 echo "ℹ️ [INFO] Cloning pixmaps..."
 git clone https://github.com/NexaLinux/pixmaps /tmp/nexa-tmp/pixmaps/
-clear
 
 # time to shine! installing
 echo "🔥 [INSTALL] Adding wallpapers..."
@@ -238,7 +232,6 @@ sudo echo "SessionCommand=/usr/share/sddm/scripts/Xsession" >> /etc/sddm.conf
 sudo echo "SessionDir=/usr/local/share/xsessions,/usr/share/xsessions" >> /etc/sddm.conf
 sudo echo "SessionLogFile=.local/share/sddm/xorg-session.log" >> /etc/sddm.conf
 sudo echo "XephyrPath=/usr/bin/Xephyr" >> /etc/sddm.conf
-clear
 
 # done
 echo Done installing! Please reboot your PC.
