@@ -188,18 +188,20 @@ echo "ℹ️ [INFO] Marking as Nexa Linux installation..."
 sudo echo > /etc/this-is-nexa
 echo "ℹ️ [INFO] Cloning pixmaps..."
 sudo git clone https://github.com/NexaLinux/pixmaps /tmp/nexa-tmp/pixmaps/
+echo "ℹ️ [INFO] Cloning SDDM theme..."
+sudo git clone https://github.com/NexaLinux/sddm-theme /tmp/nexa-tmp/nexasddm/
 
 # time to shine! installing
 echo "🔥 [INSTALL] Adding wallpapers..."
 sudo cp -r /tmp/nexa-tmp/other-artwork/ /usr/share/wallpapers/
 sudo cp -r /tmp/nexa-tmp/github-profile/wallpapers/ /usr/share/wallpapers/nexalinux/
-echo "🔥 [INSTALL] Changing default wallpaper to \"/usr/share/wallpapers/nexalinux/wallpapers/dotted-logo.png\"..."
+echo "🔥 [INSTALL] Changing default wallpaper to \"/usr/share/wallpapers/nexalinux/dotted-logo.png\"..."
 sudo mkdir -p /etc/skel/.config
 sudo sh -c 'echo "[Containments][1][Wallpaper][org.kde.image][General]" >> /etc/skel/.config/plasma-org.kde.plasma.desktop-appletsrc'
-sudo sh -c 'echo "Image=file:///usr/share/wallpapers/nexalinux/wallpapers/dotted-logo.png" >> /etc/skel/.config/plasma-org.kde.plasma.desktop-appletsrc'
+sudo sh -c 'echo "Image=file:///usr/share/wallpapers/nexalinux/dotted-logo.png" >> /etc/skel/.config/plasma-org.kde.plasma.desktop-appletsrc'
 sudo sh -c 'echo "SlidePaths=/usr/share/wallpapers/" >> /etc/skel/.config/plasma-org.kde.plasma.desktop-appletsrc'
 echo "🔥 [INSTALL] Adding login screen wallpaper..."
-sudo cp /usr/share/wallpapers/nexalinux/wallpapers/dotted-logo.png /usr/share/nexa-sddm-wp/lock.png
+sudo cp /usr/share/wallpapers/nexalinux/dotted-logo.png /usr/share/nexa-sddm-wp/lock.png
 echo "🔥 [INSTALL] Changing DM to SDDM..."
 sudo rm /etc/systemd/system/display-manager.service
 sudo systemctl enable sddm
@@ -214,6 +216,7 @@ echo "🔥 [INSTALL] Changing /etc/os-release..."
 sudo rm /etc/os-release
 sudo cp /tmp/nexa-tmp/pixmaps/os-release /etc/
 echo "🔥 [INSTALL] Installing SDDM theme..."
+sudo cp -R /tmp/nexa-tmp/nexasddm/ /usr/share/sddm/themes/
 sudo rm /etc/sddm.conf
 sudo sh -c 'echo "[General]" >> /etc/sddm.conf'
 sudo sh -c 'echo "DisplayServer=wayland" >> /etc/sddm.conf'
