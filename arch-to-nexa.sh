@@ -160,11 +160,11 @@ fi
 
 # installing dependencies
 echo "ℹ️ [INFO] Installing Git..."
-sudo pacman -S --confirm --needed git
+sudo pacman -S --noconfirm --needed git
 echo "ℹ️ [INFO] Installing KDE Plasma..."
-sudo pacman -S --confirm --needed plasma
+sudo pacman -S --noconfirm --needed plasma
 echo "ℹ️ [INFO] Installing Wayland..."
-sudo pacman -S --confirm --needed wayland
+sudo pacman -S --noconfirm --needed wayland
 
 # time to shine! setting up
 echo "ℹ️ [INFO] Making directories..."
@@ -176,7 +176,7 @@ echo "ℹ️ [INFO] Cloning other artwork..."
 sudo git clone https://github.com/NexaLinux/other-artwork /tmp/nexa-tmp/other-artwork/
 echo "ℹ️ [INFO] Installing Nexa commands..."
 sudo pacman -Sy
-sudo pacman -S --confirm --needed nexa-cmd
+sudo pacman -S --noconfirm --needed nexa-cmd
 echo "ℹ️ [INFO] Cloning GitHub profile..."
 sudo git clone https://github.com/NexaLinux/.github/ /tmp/nexa-tmp/github-profile/
 echo "ℹ️ [INFO] Marking as Nexa Linux installation..."
