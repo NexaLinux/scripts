@@ -186,7 +186,7 @@ echo "[INFO] Marking as Nexa Linux installation..."
 sudo sh -c "echo > /etc/this-is-nexa"
 echo "[INFO] Cloning pixmaps..."
 sudo git clone https://github.com/NexaLinux/pixmaps /tmp/nexa-tmp/pixmaps/
-echo "ℹ️ [INFO] Cloning SDDM theme..."
+echo "[INFO] Cloning SDDM theme..."
 sudo git clone https://github.com/NexaLinux/nexa-wood /tmp/nexa-tmp/nexa-wood/
 
 # time to shine! installing
