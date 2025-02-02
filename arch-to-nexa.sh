@@ -183,7 +183,7 @@ echo "[INFO] Cloning artwork..."
 sudo git clone https://github.com/NexaLinux/artwork /tmp/nexa-tmp/artwork/
 sudo pacman -Syy
 echo "[INFO] Marking as Nexa Linux installation..."
-sudo echo > /etc/this-is-nexa
+sudo sh -c "echo > /etc/this-is-nexa"
 echo "[INFO] Cloning pixmaps..."
 sudo git clone https://github.com/NexaLinux/pixmaps /tmp/nexa-tmp/pixmaps/
 echo "ℹ️ [INFO] Cloning SDDM theme..."
@@ -272,8 +272,8 @@ sudo pacman -S --noconfirm --needed plasma-workspace
 sudo pacman -S --noconfirm --needed dolphin
 sudo pacman -S --noconfirm --needed ark
 sudo pacman -S --noconfirm --needed konsole
-sudo yay -S brave-bin --noconfirm
-sudo yay -S vscodium-bin --noconfirm
+yay -S brave-bin --noconfirm
+yay -S vscodium-bin --noconfirm
 
 # done
 echo Done installing! Please reboot your PC.
