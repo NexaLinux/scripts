@@ -173,7 +173,7 @@ sudo pacman -S --noconfirm --needed plasma-workspace
 sudo pacman -S --noconfirm --needed dolphin
 sudo pacman -S --noconfirm --needed ark
 sudo pacman -S --noconfirm --needed konsole
-sudo pacman -S --noconfirm --needed sddm
+sudo pacman -S --noconfirm sddm
 echo "[INFO] Installing Wayland..."
 sudo pacman -S --noconfirm --needed wayland
 sudo pacman -S --noconfirm --needed egl-wayland
