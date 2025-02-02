@@ -164,6 +164,8 @@ else
 fi
 
 # installing dependencies
+echo "[INFO] Updating Arch Linux repositories"
+sudo pacman -Sy
 echo "[INFO] Installing Git..."
 sudo pacman -S --noconfirm --needed git
 echo "[INFO] Installing KDE Plasma..."
