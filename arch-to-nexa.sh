@@ -252,9 +252,10 @@ sudo sh -c 'echo "XephyrPath=/usr/bin/Xephyr" >> /etc/sddm.conf'
 # install yay (AUR helper)
 echo "[INSTALL] Installing AUR helper (yay)..."
 sudo pacman -S --noconfirm --needed base-devel
-git clone https://aur.archlinux.org/yay-bin.git /tmp/nexa-tmp/yay/
-cd /tmp/nexa-tmp/yay/
+git clone https://aur.archlinux.org/yay-bin.git ~/yay/
+cd ~/yay/
 makepkg -si
+rm -rf ~/yay/
 
 # setting up packages
 echo "[INSTALL] Setting up packages..."
