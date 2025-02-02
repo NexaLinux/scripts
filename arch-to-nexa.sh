@@ -168,12 +168,6 @@ echo "[INFO] Installing Git..."
 sudo pacman -S --noconfirm --needed git
 echo "[INFO] Installing KDE Plasma..."
 sudo pacman -S --noconfirm --needed plasma
-sudo pacman -S --noconfirm --needed plasma-meta
-sudo pacman -S --noconfirm --needed plasma-workspace
-sudo pacman -S --noconfirm --needed dolphin
-sudo pacman -S --noconfirm --needed ark
-sudo pacman -S --noconfirm --needed konsole
-sudo pacman -S --noconfirm sddm
 echo "[INFO] Installing Wayland..."
 sudo pacman -S --noconfirm --needed wayland
 sudo pacman -S --noconfirm --needed egl-wayland
@@ -270,6 +264,11 @@ sudo pacman -Syu
 sudo pacman -S --noconfirm nexa-cmd
 sudo pacman -R --noconfirm firefox
 sudo pacman -S --noconfirm flatpak
+sudo pacman -S --noconfirm --needed plasma-meta
+sudo pacman -S --noconfirm --needed plasma-workspace
+sudo pacman -S --noconfirm --needed dolphin
+sudo pacman -S --noconfirm --needed ark
+sudo pacman -S --noconfirm --needed konsole
 sudo yay -S brave-bin --noconfirm
 sudo yay -S vscodium-bin --noconfirm
 
