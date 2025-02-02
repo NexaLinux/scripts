@@ -173,6 +173,7 @@ sudo pacman -S --noconfirm --needed plasma-workspace
 sudo pacman -S --noconfirm --needed dolphin
 sudo pacman -S --noconfirm --needed ark
 sudo pacman -S --noconfirm --needed konsole
+sudo pacman -S --noconfirm --needed sddm
 echo "[INFO] Installing Wayland..."
 sudo pacman -S --noconfirm --needed wayland
 sudo pacman -S --noconfirm --needed egl-wayland
@@ -180,7 +181,6 @@ sudo pacman -S --noconfirm --needed egl-wayland
 # time to shine! setting up
 echo "[INFO] Making directories..."
 sudo mkdir /tmp/nexa-tmp/
-sudo mkdir /usr/share/nexa-sddm-wp/
 echo "[INFO] Adding Nexa Linux repository..."
 sudo sh -c 'echo "[nexa-pkg]" >> /etc/pacman.conf && echo "SigLevel = Optional TrustAll" >> /etc/pacman.conf && echo "Server = https://packages.nexalinux.xyz/" >> /etc/pacman.conf'
 echo "[INFO] Cloning artwork..."
@@ -201,8 +201,6 @@ sudo mkdir -p /etc/skel/.config
 sudo sh -c 'echo "[Containments][1][Wallpaper][org.kde.image][General]" >> /etc/skel/.config/plasma-org.kde.plasma.desktop-appletsrc'
 sudo sh -c 'echo "Image=file:///usr/share/wallpapers/Nexa Theme/Nexa Theme.png" >> /etc/skel/.config/plasma-org.kde.plasma.desktop-appletsrc'
 sudo sh -c 'echo "SlidePaths=/usr/share/wallpapers/" >> /etc/skel/.config/plasma-org.kde.plasma.desktop-appletsrc'
-echo "[INSTALL] Adding login screen wallpaper..."
-sudo cp /usr/share/wallpapers/Reflection 2/Reflection 2.png /usr/share/nexa-sddm-wp/lock.png
 echo "[INSTALL] Changing DM to SDDM..."
 sudo rm /etc/systemd/system/display-manager.service
 sudo systemctl enable sddm
