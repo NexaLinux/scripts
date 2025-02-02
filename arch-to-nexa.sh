@@ -278,5 +278,4 @@ sudo pacman -R --noconfirm kate
 # done
 echo Done installing! Please reboot your PC.
 echo
-sleep 30
 exit 0
