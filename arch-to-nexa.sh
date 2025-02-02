@@ -192,11 +192,6 @@ sudo git clone https://github.com/NexaLinux/nexa-wood /tmp/nexa-tmp/nexa-wood/
 # time to shine! installing
 echo "[INSTALL] Adding wallpapers..."
 sudo cp -r /tmp/nexa-tmp/artwork/ /usr/share/wallpapers/
-echo "[INSTALL] Changing default wallpaper..."
-sudo mkdir -p /etc/skel/.config
-sudo sh -c 'echo "[Containments][1][Wallpaper][org.kde.image][General]" >> /etc/skel/.config/plasma-org.kde.plasma.desktop-appletsrc'
-sudo sh -c 'echo "Image=file:///usr/share/wallpapers/Nexa Theme/Nexa Theme.png" >> /etc/skel/.config/plasma-org.kde.plasma.desktop-appletsrc'
-sudo sh -c 'echo "SlidePaths=/usr/share/wallpapers/" >> /etc/skel/.config/plasma-org.kde.plasma.desktop-appletsrc'
 echo "[INSTALL] Changing DM to SDDM..."
 sudo rm /etc/systemd/system/display-manager.service
 sudo systemctl enable sddm
