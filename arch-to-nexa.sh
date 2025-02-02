@@ -26,7 +26,7 @@ echo "██ ██  ██ █████     ███   ██████�
 echo "██  ██ ██ ██       ██ ██  ██   ██     ██      ██ ██  ██ ██ ██    ██  ██ ██  "
 echo "██   ████ ███████ ██   ██ ██   ██     ███████ ██ ██   ████  ██████  ██   ██ "
 echo
-echo Arch Linux to Nexa Linux converter
+echo "Arch Linux to Nexa Linux converter - Made with love by the Nexa Linux team"
 echo Version $ver
 echo 
 echo "[INFO] Running checks..."
