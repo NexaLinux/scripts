@@ -191,7 +191,7 @@ sudo echo > /etc/this-is-nexa
 echo "[INFO] Cloning pixmaps..."
 sudo git clone https://github.com/NexaLinux/pixmaps /tmp/nexa-tmp/pixmaps/
 echo "ℹ️ [INFO] Cloning SDDM theme..."
-sudo git clone https://github.com/NexaLinux/sddm-theme /tmp/nexa-tmp/nexasddm/
+sudo git clone https://github.com/NexaLinux/nexa-wood /tmp/nexa-tmp/nexa-wood/
 
 # time to shine! installing
 echo "[INSTALL] Adding wallpapers..."
@@ -217,7 +217,7 @@ echo "[INSTALL] Changing OS info"
 sudo rm /etc/os-release
 sudo cp /tmp/nexa-tmp/pixmaps/os-release /etc/
 echo "[INSTALL] Installing SDDM theme..."
-sudo cp -R /tmp/nexa-tmp/nexasddm/ /usr/share/sddm/themes/
+sudo cp -R /tmp/nexa-tmp/nexa-wood/ /usr/share/sddm/themes/
 sudo rm /etc/sddm.conf
 sudo sh -c 'echo "[General]" >> /etc/sddm.conf'
 sudo sh -c 'echo "DisplayServer=wayland" >> /etc/sddm.conf'
@@ -232,7 +232,7 @@ sudo sh -c 'echo "EnableAvatars=false" >> /etc/sddm.conf'
 sudo sh -c 'echo "FacesDir=/usr/share/sddm/faces" >> /etc/sddm.conf'
 sudo sh -c 'echo "Font=" >> /etc/sddm.conf'
 sudo sh -c 'echo "ThemeDir=/usr/share/sddm/themes" >> /etc/sddm.conf'
-sudo sh -c 'echo "Current=nexasddm" >> /etc/sddm.conf'
+sudo sh -c 'echo "Current=nexa-wood" >> /etc/sddm.conf'
 sudo sh -c 'echo "[Users]" >> /etc/sddm.conf'
 sudo sh -c 'echo "DefaultPath=/usr/local/sbin:/usr/local/bin:/usr/bin" >> /etc/sddm.conf'
 sudo sh -c 'echo "HideShells=" >> /etc/sddm.conf'
