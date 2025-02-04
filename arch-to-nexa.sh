@@ -210,7 +210,9 @@ sudo cp /tmp/nexa-tmp/pixmaps/*.png /usr/share/pixmaps/
 sudo cp /tmp/nexa-tmp/pixmaps/*.svg /usr/share/pixmaps/
 echo "[INSTALL] Changing OS info"
 sudo rm /etc/os-release
+sudo rm /usr/lib/os-release
 sudo cp /tmp/nexa-tmp/pixmaps/os-release /etc/
+sudo cp /tmp/nexa-tmp/pixmaps/os-release /usr/lib/
 echo "[INSTALL] Installing SDDM theme..."
 sudo cp -R /tmp/nexa-tmp/nexa-wood/ /usr/share/sddm/themes/
 sudo rm /etc/sddm.conf
