@@ -177,6 +177,8 @@ sudo pacman -S --noconfirm --needed egl-wayland
 # time to shine! setting up
 echo "[INFO] Making directories..."
 sudo mkdir /tmp/nexa-tmp/
+sudo mkdir /etc/skel/.config/
+sudo mkdir /etc/skel/.config/autostart/
 echo "[INFO] Adding Nexa Linux repository..."
 sudo sh -c 'echo "[nexa-pkg]" >> /etc/pacman.conf && echo "SigLevel = Optional TrustAll" >> /etc/pacman.conf && echo "Server = https://packages.nexalinux.xyz/" >> /etc/pacman.conf'
 echo "[INFO] Cloning artwork..."
@@ -188,10 +190,14 @@ echo "[INFO] Cloning pixmaps..."
 sudo git clone https://github.com/NexaLinux/pixmaps /tmp/nexa-tmp/pixmaps/
 echo "[INFO] Cloning SDDM theme..."
 sudo git clone https://github.com/NexaLinux/nexa-wood /tmp/nexa-tmp/nexa-wood/
+echo "[INFO] Cloning auto wallpaper change script..."
+sudo git clone https://github.com/NexaLinux/plasma-default-wall /tmp/nexa-tmp/changing-system-wide-walls-is-a-pain/
 
 # time to shine! installing
 echo "[INSTALL] Adding wallpapers..."
 sudo cp -r /tmp/nexa-tmp/artwork/ /usr/share/wallpapers/
+echo "[INSTALL] Changing default wallpaper system-wide..."
+sudo cp -r /tmp/nexa-tmp/changing-system-wide-walls-is-a-pain/ /etc/skel/.config/
 echo "[INSTALL] Changing DM to SDDM..."
 sudo rm /etc/systemd/system/display-manager.service
 sudo systemctl enable sddm
