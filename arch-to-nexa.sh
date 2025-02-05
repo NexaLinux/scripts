@@ -55,6 +55,12 @@ else
   echo "Nexa Linux wasn't detected."
 fi
 
+# check if user has internet connection
+if ! ping -c 1 8.8.8.8 >/dev/null 2>&1; then
+    echo "[ERROR] No internet connection detected"
+    exit 1
+fi
+
 # confirmation
 sleep 10
 
