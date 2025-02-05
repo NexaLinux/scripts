@@ -327,6 +327,7 @@ else
 fi
 
 # done
+clear
 echo Done installing! Please reboot your PC.
 echo
 exit 0
