@@ -332,6 +332,10 @@ else
     esac
 fi
 
+# clean up
+rm -rf /tmp/nexa-tmp
+echo "[INFO] Cleaned up temporary files"
+
 # done
 clear
 echo Done installing! Please reboot your PC.
