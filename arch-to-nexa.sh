@@ -257,6 +257,8 @@ sudo sh -c 'echo "SessionCommand=/usr/share/sddm/scripts/Xsession" >> /etc/sddm.
 sudo sh -c 'echo "SessionDir=/usr/local/share/xsessions,/usr/share/xsessions" >> /etc/sddm.conf'
 sudo sh -c 'echo "SessionLogFile=.local/share/sddm/xorg-session.log" >> /etc/sddm.conf'
 sudo sh -c 'echo "XephyrPath=/usr/bin/Xephyr" >> /etc/sddm.conf'
+sudo sh -c 'echo "EnableXServer=true" >> /etc/sddm.conf'
+sudo sh -c 'echo "FallbackSession=plasma" >> /etc/sddm.conf'
 
 # install yay (AUR helper)
 echo "[INSTALL] Installing AUR helper (yay)..."
