@@ -278,6 +278,56 @@ sudo pacman -S --noconfirm --needed konsole
 yay -S brave-bin --noconfirm
 yay -S vscodium-bin --noconfirm
 
+# plymouth installation
+echo "[INSTALL] Select your bootloader:"
+echo "1) GRUB"
+echo "2) systemd-boot"
+echo "3) LILO"
+echo "4) rEFInd"
+echo "5) Other (skips Plymouth installation)"
+echo
+
+while true; do
+    read -p "[INSTALL] Enter the number corresponding to your bootloader: " bl_choice
+
+    if [[ $bl_choice -ge 1 && $bl_choice -le 5 ]]; then
+        break
+    else
+        echo "[INFO] Invalid selection. Please choose a valid number (1-5)."
+    fi
+done
+if [[ $bl_choice -eq 5 ]]; then
+    echo "[INFO] Skipping Plymouth setup."
+else
+    sudo pacman -S --noconfirm plymouth
+    sudo git clone https://github.com/NexaLinux/nexa-plymouth /tmp/nexa-tmp/plymouth/
+    sudo cp -r /tmp/nexa-tmp/nexa-plymouth /usr/share/plymouth/themes/
+    sudo plymouth-set-default-theme -R nexa-plymouth
+    sudo mkinitcpio -P
+    case $bl_choice in
+        1)
+            sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="[^"]*/& quiet splash/' /etc/default/grub
+            sudo sed -i 's/^GRUB_DISTRIBUTOR="Arch"/GRUB_DISTRIBUTOR="Nexa"/' /etc/default/grub
+            sudo grub-mkconfig -o /boot/grub/grub.cfg
+            ;;
+        2)
+            sudo sed -i 's/^options="[^"]*/& quiet splash/' /boot/loader/entries/arch.conf
+            sudo sed -i 's/Arch Linux/Nexa Linux/' /boot/loader/entries/arch.conf
+            sudo bootctl update
+            ;;
+        3)
+            sudo sed -i 's/^append="[^"]*/& quiet splash/' /etc/lilo.conf
+            sudo sed -i 's/Arch Linux/Nexa Linux/' /etc/lilo.conf
+            sudo lilo
+            ;;
+        4)
+            sudo sed -i 's/^options="[^"]*/& quiet splash/' /boot/loader/entries/arch.conf
+            sudo sed -i 's/Arch Linux/Nexa Linux/' /boot/loader/entries/arch.conf
+            sudo refind-install
+            ;;
+    esac
+fi
+
 # done
 echo Done installing! Please reboot your PC.
 echo
