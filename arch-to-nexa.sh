@@ -299,7 +299,7 @@ if [[ $bl_choice -eq 5 ]]; then
 else
     sudo pacman -S --noconfirm plymouth
     sudo git clone https://github.com/NexaLinux/nexa-plymouth /tmp/nexa-tmp/plymouth/
-    sudo cp -r /tmp/nexa-tmp/nexa-plymouth /usr/share/plymouth/themes/
+    sudo cp -r /tmp/nexa-tmp/nexa-plymouth/nexa-plymouth/ /usr/share/plymouth/themes
     sudo plymouth-set-default-theme -R nexa-plymouth
     sudo mkinitcpio -P
     case $bl_choice in
