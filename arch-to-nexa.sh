@@ -281,6 +281,7 @@ sudo pacman -S --noconfirm --needed plasma-workspace
 sudo pacman -S --noconfirm --needed dolphin
 sudo pacman -S --noconfirm --needed ark
 sudo pacman -S --noconfirm --needed konsole
+sudo pacman -S --noconfirm --needed spectacle
 yay -S brave-bin --noconfirm
 yay -S vscodium-bin --noconfirm
 
