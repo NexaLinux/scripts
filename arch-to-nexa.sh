@@ -32,8 +32,6 @@ echo
 echo "[INFO] Running checks..."
 
 # check if user is running in TTY
-terminal_type=$(tty)
-
 if [[ "$(tty)" == /dev/tty* ]]; then
     echo "Running in a TTY"
 else
