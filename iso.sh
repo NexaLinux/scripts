@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "[ISO] Removing root password"
+sudo passwd -l root
+
 echo "[ISO] Installing dependencies"
 sudo pacman -S git tar --needed --noconfirm
 
