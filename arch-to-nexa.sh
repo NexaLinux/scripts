@@ -261,30 +261,22 @@ sudo sh -c 'echo "XephyrPath=/usr/bin/Xephyr" >> /etc/sddm.conf'
 sudo sh -c 'echo "EnableXServer=true" >> /etc/sddm.conf'
 sudo sh -c 'echo "FallbackSession=plasma" >> /etc/sddm.conf'
 
-# install yay (AUR helper)
-echo "[INSTALL] Installing AUR helper (yay)..."
-sudo pacman -S --noconfirm --needed base-devel
-git clone https://aur.archlinux.org/yay-bin.git ~/yay/
-cd ~/yay/
-makepkg -si
-rm -rf ~/yay/
-
 # setting up packages
 echo "[INSTALL] Setting up packages..."
 sudo pacman -Sy
 sudo pacman -Syy
 sudo pacman -Syu
-sudo pacman -S --noconfirm nexa-cmd
-sudo pacman -R --noconfirm firefox
-sudo pacman -S --noconfirm flatpak
+sudo pacman -S --noconfirm --needed nexa-cmd
+sudo pacman -R --noconfirm --needed firefox
+sudo pacman -S --noconfirm --needed flatpak
 sudo pacman -S --noconfirm --needed plasma-meta
 sudo pacman -S --noconfirm --needed plasma-workspace
 sudo pacman -S --noconfirm --needed dolphin
 sudo pacman -S --noconfirm --needed ark
 sudo pacman -S --noconfirm --needed konsole
 sudo pacman -S --noconfirm --needed spectacle
-yay -S brave-bin --noconfirm
-yay -S vscodium-bin --noconfirm
+sudo pacman -S --noconfirm --needed firefox
+sudo pacman -S --noconfirm --needed code
 
 # bootloader changes
 echo "[INSTALL] Select your bootloader:"
