@@ -285,6 +285,45 @@ sudo pacman -S --noconfirm --needed spectacle
 yay -S brave-bin --noconfirm
 yay -S vscodium-bin --noconfirm
 
+# bootloader changes
+echo "[INSTALL] Select your bootloader:"
+echo "1) GRUB"
+echo "2) systemd-boot"
+echo "3) LILO"
+echo "4) rEFInd"
+echo "5) Other (skips bootloader changes)"
+echo
+while true; do
+    read -p "[INSTALL] Enter the number corresponding to your bootloader: " bl_choice
+    if [[ $bl_choice -ge 1 && $bl_choice -le 5 ]]; then
+        break
+    else
+        echo "[INFO] Invalid selection. Please choose a valid number (1-5)."
+    fi
+done
+if [[ $bl_choice -eq 5 ]]; then
+    echo "[INFO] Skipping bootloader changes."
+else
+    case $bl_choice in
+        1)
+            sudo sed -i 's/^GRUB_DISTRIBUTOR="Arch"/GRUB_DISTRIBUTOR="Nexa"/' /etc/default/grub
+            sudo grub-mkconfig -o /boot/grub/grub.cfg
+            ;;
+        2)
+            sudo sed -i 's/Arch Linux/Nexa Linux/' /boot/loader/entries/arch.conf
+            sudo bootctl update
+            ;;
+        3)
+            sudo sed -i 's/Arch Linux/Nexa Linux/' /etc/lilo.conf
+            sudo lilo
+            ;;
+        4)
+            sudo sed -i 's/Arch Linux/Nexa Linux/' /boot/loader/entries/arch.conf
+            sudo refind-install
+            ;;
+    esac
+fi
+
 # clean up
 rm -rf /tmp/nexa-tmp
 echo "[INFO] Cleaned up temporary files"
