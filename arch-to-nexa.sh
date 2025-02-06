@@ -202,6 +202,7 @@ echo "[INSTALL] Adding wallpapers..."
 sudo cp -r /tmp/nexa-tmp/artwork/ /usr/share/wallpapers/
 echo "[INSTALL] Changing default wallpaper system-wide..."
 sudo cp -r /tmp/nexa-tmp/changing-system-wide-walls-is-a-pain/ /etc/skel/.config/
+sudo cp -r /tmp/nexa-tmp/changing-system-wide-walls-is-a-pain/ ~/.config/
 echo "[INSTALL] Changing DM to SDDM..."
 sudo rm /etc/systemd/system/display-manager.service
 sudo systemctl enable sddm
