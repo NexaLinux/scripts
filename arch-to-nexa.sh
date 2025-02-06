@@ -70,7 +70,7 @@ while true; do
     read -p "Do you want to continue? (Y/n): " choice
     
     if [[ "$choice" == "Y" ]]; then
-        break
+        sleep 0 # bash will scream at us if we put nothing
     elif [[ "$choice" == "n" || "$choice" == "N" ]]; then
         exit 0
     else
