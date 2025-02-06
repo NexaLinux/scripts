@@ -25,4 +25,4 @@ echo "[ISO] Running configuration"
 sudo eggs dad
 
 echo "[ISO] Producing an egg!"
-sudo eggs produce --excludes homes --release --clone --noicon
+sudo eggs produce --release --clone --noicon
