@@ -69,7 +69,7 @@ while true; do
     echo "[WARNING] The creators of this script are not responsible for any damages caused to your PC."
     read -p "Do you want to continue? (Y/n): " choice
     
-    if [[ "$choice" == "Y" ]]; then
+    if [[ "$choice" == "Y" || "$choice" == "y" ]]; then
         sleep 0 # bash will scream at us if we put nothing
     elif [[ "$choice" == "n" || "$choice" == "N" ]]; then
         exit 0
