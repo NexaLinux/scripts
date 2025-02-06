@@ -267,7 +267,6 @@ sudo pacman -Sy
 sudo pacman -Syy
 sudo pacman -Syu
 sudo pacman -S --noconfirm --needed nexa-cmd
-sudo pacman -R --noconfirm --needed firefox
 sudo pacman -S --noconfirm --needed flatpak
 sudo pacman -S --noconfirm --needed plasma-meta
 sudo pacman -S --noconfirm --needed plasma-workspace
