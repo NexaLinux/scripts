@@ -14,10 +14,6 @@ git clone https://github.com/pieroproietti/get-eggs /tmp/prod/get-eggs/
 cd /tmp/prod/get-eggs/
 sudo ./get-eggs.sh
 
-echo "[ISO] Adding Calamares theme"
-rm -rf /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding/
-git clone https://github.com/NexaLinux/calamares /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding
-
 echo "[ISO] Installing Calamares (eggs)"
 sudo eggs calamares --install --theme nexa
 
