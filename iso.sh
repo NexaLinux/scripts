@@ -8,11 +8,17 @@ sudo pacman -S git tar --needed --noconfirm
 
 echo "[ISO] Making directories"
 mkdir /tmp/prod
+mkdir /home/root
 
 echo "[ISO] Installing Penguins' eggs"
 git clone https://github.com/pieroproietti/get-eggs /tmp/prod/get-eggs/
 cd /tmp/prod/get-eggs/
 sudo ./get-eggs.sh
+
+echo "[ISO] Adding wardrobes"
+git clone https://github.com/pieroproietti/penguins-wardrobe /home/root/.wardrobe/
+mkdir /home/root/.wardrobe/vendors/nexa/theme/artwork
+curl https://raw.githubusercontent.com/pieroproietti/penguins-wardrobe/refs/heads/main/vendors/spiral/theme/artwork/install-system.png --output /home/root/.wardrobe/vendors/nexa/theme/artwork/install-system.png
 
 echo "[ISO] Installing Calamares (eggs)"
 sudo eggs calamares --install --theme nexa
