@@ -19,10 +19,10 @@ rm -rf /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding/
 git clone https://github.com/NexaLinux/calamares /usr/lib/penguins-eggs/addons/eggs/theme/calamares/branding
 
 echo "[ISO] Installing Calamares (eggs)"
-sudo eggs calamares --install
+sudo eggs calamares --install --theme nexa
 
 echo "[ISO] Running configuration"
 sudo eggs dad
 
 echo "[ISO] Producing an egg!"
-sudo eggs produce --release --noicon
+sudo eggs produce --theme nexa --release --noicon
