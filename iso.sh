@@ -15,12 +15,11 @@ git clone https://github.com/pieroproietti/get-eggs /tmp/prod/get-eggs/
 cd /tmp/prod/get-eggs/
 sudo ./get-eggs.sh
 
+echo "[ISO] Adding Calamares icon"
+sudo wget https://raw.githubusercontent.com/komaru-meow/penguins-wardrobe/refs/heads/main/vendors/nexa/theme/artwork/install-system.png --output /etc/nexa/calamares-install.png
+
 echo "[ISO] Adding wardrobes"
 git clone https://github.com/pieroproietti/penguins-wardrobe /home/root/.wardrobe/
-mkdir /home/root/.wardrobe/vendors/nexa/theme/artwork
-mkdir /home/root/.wardrobe/vendors/nexa/theme/applications
-curl https://raw.githubusercontent.com/pieroproietti/penguins-wardrobe/refs/heads/main/vendors/spiral/theme/artwork/install-system.png --output /home/root/.wardrobe/vendors/nexa/theme/artwork/install-system.png
-curl https://raw.githubusercontent.com/pieroproietti/penguins-wardrobe/refs/heads/main/vendors/spiral/theme/applications/install-system.desktop --output /home/root/.wardrobe/vendors/nexa/theme/applications/install-system.desktop
 
 echo "[ISO] Installing Calamares (eggs)"
 sudo eggs calamares --install --theme nexa
