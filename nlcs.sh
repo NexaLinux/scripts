@@ -173,7 +173,7 @@ echo "[INFO] Installing Wayland..."
 sudo pacman -S --noconfirm --needed wayland
 sudo pacman -S --noconfirm --needed egl-wayland
 
-# time to shine! setting up
+# setting up
 echo "[INFO] Making directories..."
 sudo mkdir /tmp/nexa-tmp/
 sudo mkdir /etc/skel/.config/
@@ -192,7 +192,7 @@ sudo git clone https://github.com/NexaLinux/nexa-wood /tmp/nexa-tmp/nexa-wood/
 echo "[INFO] Cloning auto wallpaper change script..."
 sudo git clone https://github.com/NexaLinux/plasma-default-wall /tmp/nexa-tmp/default-wallpaper/
 
-# time to shine! installing
+# installing
 echo "[INSTALL] Adding wallpapers..."
 sudo cp -r /tmp/nexa-tmp/artwork/ /usr/share/wallpapers/
 echo "[INSTALL] Changing default wallpaper..."
