@@ -27,6 +27,7 @@ echo "██  ██ ██ ██       ██ ██  ██   ██     █�
 echo "██   ████ ███████ ██   ██ ██   ██     ███████ ██ ██   ████  ██████  ██   ██ "
 echo
 echo "Arch Linux to Nexa Linux converter - Made with love by the Nexa Linux team"
+echo "Development purposes only - Use at your own risk!"
 echo Version $ver
 echo 
 echo "[INFO] Running checks..."
@@ -43,13 +44,13 @@ fi
 if [[ -f "/etc/arch-release" ]]; then
     echo "Arch Linux detected"
 else
-    echo "You are not running Arch Linux! Please try running me on an Arch Linux PC."
+    echo "You are not running Arch Linux! Please try running me on Arch Linux."
     exit 1
 fi
 
 # check if user is already running Nexa Linux
 if [[ -f "/etc/this-is-nexa" ]]; then
-  echo "Nexa Linux has been detected."
+  echo "You are already running Nexa Linux!"
   exit 1
 else
   echo "Nexa Linux wasn't detected."
@@ -189,15 +190,15 @@ sudo git clone https://github.com/NexaLinux/pixmaps /tmp/nexa-tmp/pixmaps/
 echo "[INFO] Cloning SDDM theme..."
 sudo git clone https://github.com/NexaLinux/nexa-wood /tmp/nexa-tmp/nexa-wood/
 echo "[INFO] Cloning auto wallpaper change script..."
-sudo git clone https://github.com/NexaLinux/plasma-default-wall /tmp/nexa-tmp/changing-system-wide-walls-is-a-pain/
+sudo git clone https://github.com/NexaLinux/plasma-default-wall /tmp/nexa-tmp/default-wallpaper/
 
 # time to shine! installing
 echo "[INSTALL] Adding wallpapers..."
 sudo cp -r /tmp/nexa-tmp/artwork/ /usr/share/wallpapers/
-echo "[INSTALL] Changing default wallpaper system-wide..."
-sudo cp -r /tmp/nexa-tmp/changing-system-wide-walls-is-a-pain/ /etc/skel/.config/
-sudo cp -r /tmp/nexa-tmp/changing-system-wide-walls-is-a-pain/ ~/.config/
-echo "[INSTALL] Changing DM to SDDM..."
+echo "[INSTALL] Changing default wallpaper..."
+sudo cp -r /tmp/nexa-tmp/default-wallpaper/ /etc/skel/.config/
+sudo cp -r /tmp/nexa-tmp/default-wallpaper/ ~/.config/
+echo "[INSTALL] Changing Display Manager to SDDM..."
 sudo rm /etc/systemd/system/display-manager.service
 sudo systemctl enable sddm
 echo "[INSTALL] Changing pixmaps..."
