@@ -39,7 +39,7 @@ jobs:
         continue-on-error: true
 
       - name: Send Discord Notification
-        uses: Whipstickgostop/discord-webhook-action@v6.0.0
+        uses: Whipstickgostop/discord-webhook-action@v1.3.2
         with:
           webhook-url: ${{ secrets.SHELLCHECK_WEBHOOK_URL }}
           content: |
