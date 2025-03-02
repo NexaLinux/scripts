@@ -1,0 +1,47 @@
+name: ShellCheck Linting
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [closed]
+
+jobs:
+  shellcheck:
+    name: Run ShellCheck
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true || github.event_name == 'push'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run ShellCheck
+        id: shellcheck
+        uses: ludeeus/action-shellcheck@master
+        continue-on-error: true
+        env:
+          SHELLCHECK_OPTS: "-f gcc"
+        with:
+          files: |
+            iso.sh
+            nlcs.sh
+
+      - name: Format ShellCheck Output
+        id: format_output
+        run: |
+          if [ -f /github/workspace/shellcheck.log ]; then
+            echo "ShellCheck found issues:" > shellcheck_output.txt
+            cat /github/workspace/shellcheck.log >> shellcheck_output.txt
+          else
+            echo "ShellCheck passed with no issues." > shellcheck_output.txt
+          fi
+        continue-on-error: true
+
+      - name: Send Discord Notification
+        uses: Whipstickgostop/discord-webhook-action@v6.0.0
+        with:
+          webhook-url: ${{ secrets.SHELLCHECK_WEBHOOK_URL }}
+          content: |
+            ShellCheck results for commit `${{ github.sha }}`:
+            ```$(cat shellcheck_output.txt)```
