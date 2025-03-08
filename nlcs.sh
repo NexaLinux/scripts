@@ -271,7 +271,7 @@ sudo pacman -S --noconfirm --needed konsole
 sudo pacman -S --noconfirm --needed spectacle
 sudo pacman -S --noconfirm --needed firefox
 sudo pacman -S --noconfirm --needed code
-sudo pacman -R --noconfirm plymouth
+sudo pacman -R --noconfirm plymouth plymouth-kcm breeze-plymouth
 
 # bootloader changes
 echo "[INSTALL] Select your bootloader:"
