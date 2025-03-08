@@ -16,7 +16,7 @@ cd /tmp/prod/get-eggs/
 sudo ./get-eggs.sh
 
 echo "[ISO] Adding wardrobes"
-git clone https://github.com/komaru-meow/penguins-wardrobe /home/root/.wardrobe/
+git clone https://github.com/pieroproietti/penguins-wardrobe /home/root/.wardrobe/
 
 echo "[ISO] Installing Calamares (eggs)"
 sudo eggs calamares --install --theme nexa
@@ -25,4 +25,4 @@ echo "[ISO] Running configuration"
 sudo eggs dad
 
 echo "[ISO] Producing an egg!"
-sudo eggs produce --theme nexa --release --noicon --cryptedclone
+sudo eggs produce --theme nexa --release --noicon --clone
