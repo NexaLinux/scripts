@@ -25,4 +25,4 @@ echo "[ISO] Running configuration"
 sudo eggs dad
 
 echo "[ISO] Producing an egg!"
-sudo eggs produce --theme nexa --release --noicon --cryptedclone
+sudo eggs produce --theme nexa --release --noicon
