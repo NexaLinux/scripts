@@ -196,8 +196,12 @@ sudo git clone https://github.com/NexaLinux/plasma-default-wall /tmp/nexa-tmp/de
 echo "[INSTALL] Adding wallpapers..."
 sudo cp -r /tmp/nexa-tmp/artwork/ /usr/share/wallpapers/
 echo "[INSTALL] Changing default wallpaper..."
-sudo cp -r /tmp/nexa-tmp/default-wallpaper/ /etc/skel/.config/
-sudo cp -r /tmp/nexa-tmp/default-wallpaper/ ~/.config/
+sudo cp -r /tmp/nexa-tmp/default-wallpaper/* /etc/skel/.config/
+sudo cp -r /tmp/nexa-tmp/default-wallpaper/* ~/.config/
+sudo rm /etc/skel/.config/README.md
+sudo rm /etc/skel/.config/LICENSE
+sudo rm ~/.config/README.md
+sudo rm ~/.config/LICENSE
 echo "[INSTALL] Changing Display Manager to SDDM..."
 sudo rm /etc/systemd/system/display-manager.service
 sudo systemctl enable sddm
