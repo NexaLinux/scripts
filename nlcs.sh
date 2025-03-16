@@ -276,6 +276,7 @@ sudo pacman -S --noconfirm --needed spectacle
 sudo pacman -S --noconfirm --needed firefox
 sudo pacman -S --noconfirm --needed code
 sudo pacman -R --noconfirm plymouth plymouth-kcm breeze-plymouth
+sudo pacman -S --noconfirm --needed syslinux # /init: line 7: memdiskfind: not found
 
 # bootloader changes
 echo "[INSTALL] Select your bootloader:"
