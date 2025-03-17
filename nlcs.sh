@@ -15,9 +15,6 @@
 
 #!/bin/bash
 
-# variables
-ver="1.0.0"
-
 # splash
 echo
 echo "███    ██ ███████ ██   ██  █████      ██      ██ ███    ██ ██    ██ ██   ██ "
@@ -28,7 +25,6 @@ echo "██   ████ ███████ ██   ██ ██   █�
 echo
 echo "Arch Linux to Nexa Linux converter - Made with love by the Nexa Linux team"
 echo "Development purposes only - Use at your own risk!"
-echo Version $ver
 echo 
 echo "[INFO] Running checks..."
 
