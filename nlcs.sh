@@ -189,10 +189,6 @@ echo "[INFO] Cloning auto wallpaper change script..."
 sudo git clone https://github.com/NexaLinux/plasma-default-wall /tmp/nexa-tmp/default-wallpaper/
 
 # installing
-echo "[INSTALL] Replacing kernel with Linux Zen..."
-sudo pacman -R --noconfirm linux
-sudo pacman -S --noconfirm linux-zen linux-zen-headers
-# bootloader changes update the bootloader config, no need for that here
 echo "[INSTALL] Adding wallpapers..."
 sudo cp -r /tmp/nexa-tmp/artwork/ /usr/share/wallpapers/
 echo "[INSTALL] Changing default wallpaper..."
