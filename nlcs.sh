@@ -15,6 +15,9 @@
 
 #!/bin/bash
 
+echo "The original NLCS script cannot be used anymore! Exiting... (hint: old code is still below)"
+exit 1
+
 # splash
 echo
 echo "███    ██ ███████ ██   ██  █████      ██      ██ ███    ██ ██    ██ ██   ██ "
