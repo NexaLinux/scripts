@@ -210,11 +210,7 @@ print("[INSTALL] Changing Display Manager to SDDM...")
 os.system("sudo rm /etc/systemd/system/display-manager.service")
 os.system("sudo systemctl enable sddm")
 
-print("[INSTALL] Changing pixmaps...")
-os.system("sudo rm /usr/share/pixmaps/archlinux-logo.png")
-os.system("sudo rm /usr/share/pixmaps/archlinux-logo.svg")
-os.system("sudo rm /usr/share/pixmaps/archlinux-logo-text-dark.svg")
-os.system("sudo rm /usr/share/pixmaps/archlinux-logo-text.svg")
+print("[INSTALL] Adding pixmaps...")
 os.system("sudo cp /tmp/nexa-tmp/pixmaps/*.png /usr/share/pixmaps/")
 os.system("sudo cp /tmp/nexa-tmp/pixmaps/*.svg /usr/share/pixmaps/")
 
