@@ -1,9 +1,10 @@
 ---
 name: Feature request
 about: Suggest a feature for Nexa.
-title: ""
-labels: ""
-assignees: ""
+title: ''
+labels: enhancement
+assignees: justwinstuff, komaru-meow
+
 ---
 
 **Is your feature request related to a problem? Please describe.**
